@@ -1,0 +1,729 @@
+/****** General ***********/
+
+/*****partie existe deja***/
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+:root {
+    --main-color: #0065FC;
+    --main-bg-color: #F2F2F2;
+    --filter-bg-color: #DEEBFF;
+}
+
+.fa-solid {
+    color: var(--main-color);
+} 
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 50px;
+    box-sizing: border-box;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.euro {
+    font-weight: 700;
+}
+
+
+/*******etoile grise ******/
+.neutral-star {
+    color: var(--main-bg-color)
+}
+
+/****Fin partie exsite deja**/
+
+
+/****** debut menu et header ***********/
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between; 
+}
+
+.logo {  /* ces trois elements sur le logo mise depuis figma ***/
+    padding-top: 10px;
+    width: 61px;
+    height: 19px;
+} 
+
+nav ul {
+    display: flex;
+    list-style-type: none;  /**** permet d'enlever le marquer au debut de la liste par exple caratcter, tiret ,***/
+    margin: 0; /*** enlever la marge ou espace a l'exterieur de l'element**/
+}
+nav li {
+    margin-right: 0px;
+    padding: 20px; /*** c'est l'espace entre heberments et activites dans le nav si non ils seront attachés et prennet le padding du parent qui dans Ul et egale a 0**/
+}
+
+.border-blue:hover {  /*** c'est pour bordure bleu****/
+    border-top: 3px solid #0065fc; /*** la bordure est d'epaiiseur 3 et solide gras et de couleur bleu**/
+    color: #0065FC; /**  couleur bleu au survole lorsque je met la souris sur hebergent et activite , non pas la bordure issi****/
+}
+
+/*********  Fin menu et header********/
+
+
+/****** la partie barre de recherhce ***********/
+.search-title {
+    font-size: 22px; /*** le font de la ploice depuis la maquette***/
+}
+.search-subtitle {
+    font-size: 16px;  /*** le font de la ploice depuis la maquette***/
+}
+.search-form {
+    display:inline-flex;/** pour mettre le barre de recherche et le bouton recherhcer dans une seule ligne,, Les objets inline: sont des objets qui occupent juste l'espace necessaire pour leur affichage, il ne génèrent pas de retour à la ligne automatique et ne sont pas redimensionnables en CSS (s*/
+    
+}
+
+.search-form-location { /*figma*/
+    position: relative;
+    width: 332px;
+    height: 49px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    border: 1px solid var(--Grey, --main-bg-color);
+    background: var(--White, #FFF);
+}
+
+.search-form-location input {
+    text-align: center;
+    font-family: Raleway;
+    font-size: 18px;
+    font-style: normal;
+    line-height: normal;
+    border: 0px;
+    background: var(--White, #FFF);
+}
+
+input::placeholder { /**chnger le style du placeholder de input cad couleur noir de texte.**/
+    font-weight: 700;
+    color: black
+  }
+
+#map{
+    border: 1px solid #F2F2F2; 
+    border-radius: 10px 0 0 10px; 
+    background-color: #F2F2F2; 
+    text-align: center;
+    padding-top: 20px;
+    width: 40px;
+    height: 30px;
+}
+
+#Rechercher{ /** on utilise un hashtag pour id***/
+    padding-top: 12px;
+}
+
+.search-button {  /** tous pris de figma **/
+    display: inline-flex;
+    height: 49px;
+    padding: 15px 16px;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 0px 15px 15px 0px;
+    border: 1px solid var(--Blue, #0065FC);
+    background: var(--Blue, #0065FC);
+    color: white;
+    font-weight: bold;
+}
+
+.loupe {  /*** cacher la loupe qui existe dans html dans desktop*/
+    display:none;   
+}
+
+/****** les filtres ***********/
+.filter {
+    display: flex;
+    gap: 25px;
+    margin-top: 33px;
+}
+  
+.filter-btn {
+    display: inline-flex;
+    padding: 4px 20px;
+    align-items: center;
+    height: 50px;
+    border-radius: 25px;
+    border: 2px solid #d9d9d9;
+    background-color: #ffff;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.btn-label { /* espace entre le logo et le texte**/
+    margin-left: 10px;
+}
+
+.filter-btn:hover {  /*** effet zoom ou survole de chaqe bouton*/
+    background-color: #deebff;
+    font-size: 22px;
+    transition-duration: 0.2s;
+}
+
+
+/******partie search results ***/
+.search-result {
+    display: flex;
+    padding-top: 15px;
+    align-items: center;
+  }
+
+.icone-information{
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;  
+    border: 2px solid #F2F2F2 ;
+  }
+
+.icone-information i {
+    color: #0065FC; /**couleur de icone*/
+  }
+
+.texte-ajouté{
+    font-size: 16px;
+    margin-left: 15px;
+    margin-right: 0px;
+  }
+
+/****** Hebergements & Populaires existent deja***********/
+.hebergements-and-populaires {
+    display: flex;  /** pour mettre les deux sections l'une a cote de l'autre*/
+    justify-content: space-between; /** pour  que les deux sections ne soient pas attaches ilya une petite espace*/
+    margin-top: 33px; /** pour s'eloigner de la section en haut qui est le filtre*/
+}
+
+.hebergements-and-populaires section {   
+    border-radius: 20px;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/****** Populaires existe deja start ***********/
+
+.section-title{  /**  cette section a le meme nom pour les 3 parties hebergements , les plus populaire et activites marseille**/
+    font-size: 22px;
+    margin-left: 10px; 
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+.card img {
+    object-fit: cover;
+}
+
+.populaires {
+    width: 32%;
+    background-color: var(--main-bg-color);
+}
+
+.populaires-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.populaires-cards .card {
+    display: flex;
+    margin-bottom: 33px;
+}
+
+.populaires-cards img {
+    width: 33%;
+    height: 136px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.populaires-cards .card-content {
+    width: 67%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.populaires-cards .card-title {
+    margin-top: 10px;
+    margin-right: 26px;
+    margin-bottom: 4px;
+}
+
+.populaires-cards .card-subtitle {
+    margin: 0;
+}
+
+.populaires-cards .card-rating {
+    margin-bottom: 5px;
+    
+}
+
+/****** Hebergements a marseille ajouté  ***********/
+.hebergements {
+    background-color: var(--main-bg-color);
+    width: 66%;
+}
+
+ .partie1 {
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 30px;
+    margin-top: 0px;
+}
+
+.partie1 .card {
+ 
+  height: 191px;
+  border-radius: 20px;
+  background: var(--White, #FFF);
+  box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.10);
+}
+
+.partie1 img {
+    width:100%;
+    height: 60%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.partie1 .card-content {
+    width: 100%;
+    color: #000;
+    padding-left: 16px;
+    justify-content: space-between;
+    
+}
+
+.partie1 .card-title{
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.partie1 .card-subtitle{
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+
+.partie1 .card-rating{  
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.Afficher-plus{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+
+/****** activites a Marseille START ***********/
+.Activites-Marseille{
+    margin-top: 50px;
+    margin-bottom: 70px;
+    width: 95%;
+ }
+
+.activites-cards {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-gap: 30px;
+    margin-top: 30px;
+}
+
+.activites-cards .card {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;  
+  }
+  
+  .activites-cards img {
+    width: 100%;
+    height: 90%;
+    border-radius: 20px 20px 0px 0px;
+  }
+  
+  .activites-cards .card-content {
+      width: 100%;
+      height: 10%;
+    }
+
+.activites-cards .card-title{
+    margin-left: 20px;
+    margin-right: 36px;
+        font-size: 16px;
+}
+
+.activites-cards .card-title-notre-dame{
+    margin-left: 20px;
+    margin-right: 50px;
+        font-size: 16px;
+}
+
+/****** activites a Marseille END ***********/
+
+/****** footer START ***********/
+
+.footer {
+    width: 100%;
+    display: flex;    
+    background-color: var(--main-bg-color);   
+    padding: 30px;
+}
+
+.footer-nav {
+    width: 33%;   
+    display: flex;
+    flex-direction: column;
+    color: black;
+    margin: 10px;    
+    gap: 15px;    
+  }
+  .footer-nav-title {
+    margin: 0;
+  }
+  .footer-nav-link {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+/****** footer END ***********/
+/* Le code ci-dessous correspond à la version responsive uniquement */
+
+/****** Media queries ***********/
+/* Medium devices (tablets, less/equal than 1024px) */
+@media (max-width: 1024px) {
+
+
+    /**  hebergements et populaire  existent déja au**/
+    .hebergements-and-populaires {
+        flex-direction: column; 
+    }
+
+    .hebergements {
+         width: 100%;
+    }
+        
+    .populaires {
+        width: 100%;
+        margin-top: 33px;
+    }
+    
+    .populaires-cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .populaires-cards a {
+        width: 30%;
+    }
+    
+    .populaires-cards .card-title {
+        font-size: 14px;
+        margin-right: 30px;
+    }
+    
+    .populaires-cards .card-subtitle {
+        font-size: 13px;
+    }
+
+    /****** activites a Marseille ajouté START ***********/
+    .Activites-Marseille{
+        margin-top: 30px;
+        margin-bottom: 0px;
+    }
+ .activites-cards .card {
+         height: 70%;
+    }
+    .activites-cards img {
+        height: 70%;  
+    }
+
+    .activites-cards .card-content {
+        height: 30%;
+    }
+
+    .activites-cards .card-title-notre-dame{
+        margin-left: 20px;
+        margin-right: 70px;
+    }
+    /****main countainer ajouté debut***/ 
+    .main-container {
+        margin: 30px; 
+    }
+
+    /****header ajouté start ****/
+    header.nav{
+        width: 90%;
+        margin: 30px;
+    }
+
+    /** partie filtre ajouté  **/
+    .filter {
+        gap: 18px;
+    }
+}
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 767.98px) {
+    /* ... */
+ 
+    .main-container{
+        padding: 0px;   
+        margin: 0px; 
+      }   
+
+    html { 
+        width: 100%; /** pour que la largeur s'adapte automatiquement a ecran*/
+        margin: 0px; 
+        padding: 0px;
+        box-sizing: border-box; /** agencer les box sans bordure*/
+  }
+
+    header  {
+        display: flex;
+        flex-direction: column;
+        margin: 0px;
+  }
+
+    .logo{
+        display: block; /** display block pour pouvoir apre centrer avec margin left et right auto cad qlq soit largeur de ecran ca va etre au milieu*/
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
+  }
+    .ancre{
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+}
+    nav {
+        width: 100%;
+}
+
+    nav ul {
+        width: 100%;  
+        padding: 0;
+}
+
+    nav li {
+        width: 50%;   
+        border-bottom: 3px solid #F2F2F2;
+        padding-bottom: 10px;
+        margin: 0;
+        text-align: center;
+}
+   
+    nav a:hover{
+        padding-top: 37px;
+}
+
+    nav li a:hover{
+        border-top: none;
+}
+
+    nav li:hover{
+        border-color: #0065FC;
+        border-color: #0065FC;
+}
+
+    .border-blue:hover {  /*** c'est pour bordure bleu****/  
+        padding: 0px;
+        border-top: none;
+}
+
+    /****** partie filtres *******/
+    .filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 0px;
+}
+ 
+    .filter-btn {
+        width: 47%;
+        margin-top: 17px;
+}
+    .titre-filtre {  
+        margin: 0%;  
+        padding: 0%;  
+        width: 100%;
+  }
+
+    .btn-label {  /***** pour diminuer le size des mot economiq,,,*****/
+        font-size: 11px; 
+        margin-left: 5px;
+}
+
+    h1,p {
+        padding-left: 15px; 
+ }
+ 
+
+    /*********** barre d ercherche et bouton rechercher*******/
+
+    .texterechercher{ /***cacher le mot rechercher **/
+        display: none;
+   }
+
+    .loupe {  /**faire appraitre la loupe */
+        display:block;  
+}
+
+    .search-title {
+        margin-right: 30px;
+        margin-left: 0px;
+}
+    .search-form{
+        width: 60%;
+        padding-left: 5px;
+}
+    .search-form-location {
+        width: 300px;
+        height: 49px;
+        margin-left: 10px;
+        background:var(--White, #FFF);
+}
+
+    /******search result ***/
+    .search-result {
+        padding-left: 15px;
+        align-items: center;
+        gap: 0px; 
+   }
+ 
+    .texte-ajouté{
+        margin-left: 0px;
+        margin-right: 10px;
+   }
+    /******hebergements et populaires******/
+    .hebergements-and-populaires {     
+        flex-direction: column-reverse;   /****  pour inverser ordre de hebergents et plus populaires**/ 
+        margin-top: 0px;
+}
+    .hebergements-and-populaires section {
+        border-radius: 0px;
+}
+    /* Populaires */
+
+    .section-title{ 
+        margin-top: 0px;
+}
+    .populaires {
+        background-color: var(--main-bg-color);
+}
+    .populaires-cards {
+        display: flex;
+        flex-direction: column;  
+  }
+    .populaires-cards .card {
+        margin-bottom: 16px;
+}
+
+    .populaires {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+}
+    .populaires-cards a {
+    width: 100%;     
+}
+
+    .populaires-cards .card-subtitle {
+        padding-left: 0px; /** enlever le paddind de 15 px qui existe deja ds le container**/
+}
+
+    /**hebergements a marseille**/
+    .partie1 {
+        grid-template-columns: 1fr;   
+}
+
+    .hebergements {
+        background: var(--White, #FFF);
+}
+
+    .partie1 .card-subtitle{   
+        margin-top: 5px;
+        margin-bottom: 0px;
+        margin-left: -15px;
+}
+
+    .hebergements .section-title {  
+        margin-right: 0px;
+}
+
+    .Afficher-plus{
+        display: none;
+}
+
+    /**activites a marseille**/
+
+    .Activites-Marseille{
+  
+        padding-left: 15px;
+    }
+ 
+
+    .activites-cards {
+        grid-template-columns: 1fr
+}
+
+    .Activites-Marseille .section-title {  
+        margin-top: 105px;
+        margin-right: 200px; 
+}
+    .activites-cards .card {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+  }
+    .activites-cards img {
+        width: 100%;
+        height: 100%;
+        max-height: 130px;
+        border-radius: 20px 20px 0px 0px;
+  }
+
+    /***footer*/
+
+    .footer {
+        flex-direction: column;
+        gap: 30px;
+        margin-top: 80px;
+        width: 90%;
+    }
+    
+    .footer-nav {
+        width: 100%;   
+        margin: 0%;
+        font-size: 16px;         
+        margin-top: 35px;
+      }
+
+}
